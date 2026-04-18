@@ -1,0 +1,83 @@
+#BANCO UNIVILLE - Internet Banking
+
+while True:
+    logado = False
+    print("- UNIVILLE Internet Banking -")
+    print("1. Acessar")
+    print("2. Encerrar")
+
+    opcao = input("Digite a opção desejada:")
+
+    if opcao == "1" or opcao== "Acessar" or opcao == "acessar":
+        tentativas = 3
+        logado = False
+
+        while tentativas > 0:
+            usuario = input( "Digite o seu usuário:")
+            senha = input( "Digite a sua senha:")
+
+            if usuario =="aluno" and senha== "univille":
+                print(" Login realizado com sucesso!")
+                logado = True
+                break
+            else:
+                print ("Usuário e senha inválidos.")
+                tentativas = tentativas -1
+                print (f"Numero de tentativas restantes: {tentativas}")
+
+                if tentativas == 0:
+                    print (" - NÚMERO DE TENTATIVAS EXCEDIDAS. - ")
+                    print ( "Fim de programa")
+                    break
+
+    if logado == True:
+        saldo = 193.94
+        limite = 100.00
+        while True:
+            print(" - Univille Internet Banking -")
+            print( " 1.Consultar Saldo")
+            print (" 2.Realizar Saque")
+            print (" 3.Realizar Depósito")
+            print (" 4.Consultar limite")
+            print (" 5.Encerrar")
+
+            menu = input ("Digite a opção desejada:")
+
+            if menu == "1" or menu == "Consultar Saldo":
+                print (f"saldo é R$: {saldo:.2f}")
+                continue
+
+            elif menu == "2" or menu == "saque":
+                valor_saque = float (input("Digite o valor do saque R$:"))
+
+                if valor_saque <= 0:
+                    print("Valor inválido")
+                    print (" Operação não realizada. - ")
+
+                elif valor_saque > saldo + limite:
+                    print("Saldo insuficiente.")
+                    print(" Operação não realizada. - ")
+
+                else:
+                    saldo = saldo - valor_saque
+                    print(f"Saque realizado. Novo saldo R$: {saldo:.2f}")
+
+            elif menu == "3" or menu =="deposito" or menu =="depósito":
+                valor_deposito = float(input("Digite o valor de depósito R$:"))
+
+                if valor_deposito > 0:
+                    saldo =  saldo + valor_deposito
+                    print("Deposito realizado com sucesso.")
+                    print(f"Saldo atual: {saldo:.2f}")
+                else:
+                    print ( "Valor Inválido")
+
+            elif menu == "4" or menu =="limite" or menu =="limites":
+                limite_disponivel = limite + saldo
+                print(f"limite da conta é R$: {limite:.2f}")
+                print(f"Limite disponivel: {limite_disponivel:.2f}")
+                continue
+
+            elif menu == "5" or menu == "encerrar" or menu =="Encerrar":
+                print("Sessão encerrada.")
+                break
