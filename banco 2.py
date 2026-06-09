@@ -3,6 +3,18 @@ senhas = ["univille1", "univille2", "univille3", "GERENTE"]
 saldo = [193.94, 190.00, 193.94 ]
 limite = [100,200,100 ]
 
+matrizbanco = [
+["aluno1", "univille1", 193.94, 1000]
+["aluno2", "univille2", 120.94, 2000]
+["aluno3", "univille3", 540.44, 3000]
+["gerente", "GERENTE", 100, 300]
+]
+
+for linha in matrizbanco:
+    for elemento in linha:
+        print(f"{elemento: <5}", end='') # Define um espaço de 5 caracteres para cada número
+    print()
+
 while True:
     logado = False
     print("- UNIVILLE Internet Banking -")
