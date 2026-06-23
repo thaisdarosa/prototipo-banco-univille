@@ -96,7 +96,7 @@ while True:
         if os.path.exists(ARQ_CATEGORIAS):
             with open(ARQ_CATEGORIAS, "r") as f:
                 categorias = [linha.strip() for linha in f.readlines()]
-        print("Detalhes por categoria:")
+        print("Saídas por categoria:")
         for cat in categorias:
             total_cat = sum(float(s.split(";")[0]) for s in saidas if s and s.split(";")[1] == cat)
             print(f" - {cat}: R$ {total_cat:.2f}")
